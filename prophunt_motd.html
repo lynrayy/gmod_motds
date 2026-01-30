@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Помощь</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", system-ui, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6a00ff, #ff8a00);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* Контейнер */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px 40px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding-left: 26px;
+            margin-bottom: 10px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        ul li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #ffcf7a;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        .footer a {
+            color: #ffd27d;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Частицы */
+        .particles {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            filter: blur(10px);
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) translateX(0);
+            }
+            to {
+                transform: translateY(-120vh) translateX(100px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<div class="container">
+    <h1>Помощь</h1>
+
+    <div class="card">
+        <h2>Описание режима</h2>
+        <p>
+            В этом режиме ваша задача — спрятаться предметом от охотников,
+            или же, будучи охотником, найти игроков-предметы (пропы).
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Управление</h2>
+        <ul>
+            <li><b>E</b> (Использовать) — на предмете, чтобы превратиться</li>
+            <li><b>Q</b> (Меню) — подсказки / насмешки</li>
+            <li><b>C</b> (Контекстное меню) — дополнительные функции</li>
+            <li><b>F4</b> — магазин предметов (в том числе геймплейные)</li>
+            <li>Если вы застряли — зажмите <b>C</b> и выберите «Я застрял»</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        Донат:
+        <a href="https://boosty.to/lynray" target="_blank">boosty.to/lynray</a>
+        <br><br>
+        Идеи и предложения:
+        <a href="https://lynrayy.t.me" target="_blank">lynrayy.t.me</a>
+    </div>
+</div>
+
+<script>
+    const particlesContainer = document.getElementById("particles");
+    const particlesCount = 40;
+
+    for (let i = 0; i < particlesCount; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+
+        const size = Math.random() * 40 + 20;
+        const duration = Math.random() * 30 + 20;
+        const delay = Math.random() * -30;
+
+        p.style.width = size + "px";
+        p.style.height = size + "px";
+        p.style.left = Math.random() * 100 + "vw";
+        p.style.top = Math.random() * 100 + "vh";
+        p.style.animationDuration = duration + "s";
+        p.style.animationDelay = delay + "s";
+        p.style.opacity = Math.random() * 0.6 + 0.2;
+
+        particlesContainer.appendChild(p);
+    }
+</script>
+
+</body>
+</html>
