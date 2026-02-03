@@ -12,72 +12,71 @@
             font-family: "Segoe UI", system-ui, sans-serif;
         }
 
-        body {
-			min-height: 100vh;
-			background: linear-gradient(135deg, #6a00ff, #ff8a00);
-			color: #fff;
-			overflow-y: auto;   /* разрешаем вертикальный скролл */
-			overflow-x: hidden; /* убираем горизонтальный */
-		}
+        html, body {
+            height: 100%;
+        }
 
+        body {
+            background: linear-gradient(135deg, #6a00ff, #ff8a00);
+            color: #fff;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
 
         .container {
             position: relative;
             z-index: 2;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 60px 20px 40px;
+            padding: 20px 16px 20px;
         }
 
         h1 {
             text-align: center;
-            font-size: 3rem;
-            margin-bottom: 30px;
+            font-size: 2.2rem;
+            margin-bottom: 16px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .card {
             background: rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-            margin-bottom: 30px;
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+            margin-bottom: 16px;
         }
 
-        /* Заголовки */
         .card h2 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
+            font-size: 1.35rem;
+            margin-bottom: 8px;
         }
 
         .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
         }
 
-        /* Только описание — по центру */
         .centered {
             text-align: center;
         }
 
         .card p {
-            line-height: 1.6;
-            font-size: 1.05rem;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.45;
+            margin-bottom: 10px;
         }
 
         ul {
             list-style: none;
-            padding-left: 0;
         }
 
-        /* Основные пункты */
         ul li {
-            padding-left: 26px;
-            margin-bottom: 10px;
+            padding-left: 22px;
+            margin-bottom: 6px;
             position: relative;
-            line-height: 1.5;
+            line-height: 1.35;
+            font-size: 0.95rem;
         }
 
         ul li::before {
@@ -85,49 +84,51 @@
             position: absolute;
             left: 0;
             color: #ffcf7a;
+            font-size: 0.8rem;
         }
 
-        /* Дополнительные функции */
         ul li.sub {
-            padding-left: 22px;
+            padding-left: 18px;
+            margin-bottom: 4px;
             opacity: 0.95;
         }
 
         ul li.sub::before {
             content: "•";
-            color: #ffffffaa;
             left: 4px;
+            color: #ffffffaa;
+            font-size: 0.9rem;
         }
 
         .controls-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 10px;
         }
 
         .controls-box {
             background: rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 14px;
+            padding: 12px;
         }
 
         .controls-box h3 {
-            color: #ffd27d;
             text-align: center;
+            color: #ffd27d;
         }
 
         .note {
-            margin-top: 15px;
-            font-size: 0.95rem;
-            opacity: 0.9;
+            margin-top: 10px;
+            font-size: 0.9rem;
             text-align: center;
+            opacity: 0.9;
         }
 
         .footer {
             text-align: center;
-            margin-top: 20px;
-            font-size: 1rem;
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
 
         .footer a {
@@ -136,32 +137,29 @@
             font-weight: 600;
         }
 
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
         /* Частицы */
         .particles {
             position: fixed;
             inset: 0;
             overflow: hidden;
             z-index: 1;
+            pointer-events: none;
         }
 
         .particle {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.35);
-            filter: blur(10px);
+            background: rgba(255, 255, 255, 0.3);
+            filter: blur(8px);
             animation: float linear infinite;
         }
 
         @keyframes float {
             from {
-                transform: translateY(100vh) translateX(0);
+                transform: translateY(110vh) translateX(0);
             }
             to {
-                transform: translateY(-120vh) translateX(120px);
+                transform: translateY(-130vh) translateX(80px);
             }
         }
 
@@ -239,15 +237,15 @@
 
 <script>
     const particlesContainer = document.getElementById("particles");
-    const particlesCount = 40;
+    const particlesCount = 30;
 
     for (let i = 0; i < particlesCount; i++) {
         const p = document.createElement("div");
         p.className = "particle";
 
-        const size = Math.random() * 40 + 20;
-        const duration = Math.random() * 30 + 20;
-        const delay = Math.random() * -30;
+        const size = Math.random() * 30 + 15;
+        const duration = Math.random() * 35 + 25;
+        const delay = Math.random() * -40;
 
         p.style.width = size + "px";
         p.style.height = size + "px";
@@ -255,7 +253,7 @@
         p.style.top = Math.random() * 100 + "vh";
         p.style.animationDuration = duration + "s";
         p.style.animationDelay = delay + "s";
-        p.style.opacity = Math.random() * 0.6 + 0.2;
+        p.style.opacity = Math.random() * 0.5 + 0.2;
 
         particlesContainer.appendChild(p);
     }
