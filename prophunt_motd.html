@@ -19,11 +19,10 @@
             overflow: hidden;
         }
 
-        /* Контейнер */
         .container {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 60px 20px 40px;
         }
@@ -44,9 +43,20 @@
             margin-bottom: 30px;
         }
 
+        /* Заголовки */
         .card h2 {
             font-size: 1.6rem;
             margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Только описание — по центру */
+        .centered {
+            text-align: center;
         }
 
         .card p {
@@ -60,6 +70,7 @@
             padding-left: 0;
         }
 
+        /* Основные пункты */
         ul li {
             padding-left: 26px;
             margin-bottom: 10px;
@@ -72,6 +83,43 @@
             position: absolute;
             left: 0;
             color: #ffcf7a;
+        }
+
+        /* Дополнительные функции */
+        ul li.sub {
+            padding-left: 22px;
+            opacity: 0.95;
+        }
+
+        ul li.sub::before {
+            content: "•";
+            color: #ffffffaa;
+            left: 4px;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .controls-box {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .controls-box h3 {
+            color: #ffd27d;
+            text-align: center;
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            text-align: center;
         }
 
         .footer {
@@ -111,7 +159,13 @@
                 transform: translateY(100vh) translateX(0);
             }
             to {
-                transform: translateY(-120vh) translateX(100px);
+                transform: translateY(-120vh) translateX(120px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .controls-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -124,33 +178,55 @@
     <h1>Помощь</h1>
 
     <div class="card">
-        <h2>Описание режима</h2>
-        <p>
+        <h2 class="centered">Описание режима</h2>
+        <p class="centered">
             В этом режиме ваша задача — спрятаться предметом от охотников,
-            или же, будучи охотником, найти игроков-предметы (пропы).
-        </p>
-        <p>
-            Удар по настоящему пропу отнимает с охотника здоровье.
+            или же, будучи охотником, найти игроков-предметы.
         </p>
     </div>
 
     <div class="card">
         <h2>Управление</h2>
+
+        <h3>Общее</h3>
         <ul>
-            <li><b>E</b> (Использовать) — на предмете, чтобы превратиться</li>
-            <li><b>Q</b> (Меню) — подсказки / насмешки</li>
-            <li><b>C</b> (Контекстное меню) — дополнительные функции</li>
             <li><b>F2</b> — смена команды</li>
-            <li><b>F4</b> — магазин предметов (в том числе геймплейные)</li>
-            <li>Если вы застряли — зажмите <b>C</b> и выберите «Я застрял»</li>
+            <li><b>F4</b> — магазин предметов</li>
+            <li>Если вы застряли — используйте «Я застрял» в меню по кнопке <b>C</b></li>
         </ul>
+
+        <div class="controls-grid">
+            <div class="controls-box">
+                <h3>Для пропов</h3>
+                <ul>
+                    <li><b>E</b> — на предмете, чтобы превратиться</li>
+                    <li><b>Q</b> — насмешка (издать звук)</li>
+                    <li><b>F</b> — ослепить охотников рядом</li>
+                    <li><b>C</b> — дополнительные функции:</li>
+                    <li class="sub">Зафиксировать поворот</li>
+                    <li class="sub">Вид от первого лица</li>
+                    <li class="sub">Я застрял</li>
+                </ul>
+            </div>
+
+            <div class="controls-box">
+                <h3>Для охотников</h3>
+                <ul>
+                    <li><b>E</b> — взять предмет</li>
+                    <li><b>Q</b> — заставить случайного игрока издать звук</li>
+                    <li><b>C</b> — дополнительные функции:</li>
+                    <li class="sub">Сменить модель игрока</li>
+                    <li class="sub">Я застрял</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="note">
+            ⚠ Вы получаете урон, когда бьёте вместо игроков настоящие предметы
+        </p>
     </div>
 
     <div class="footer">
-        ⭐Вы можете установито любую модель игрока, доступную в воркшопе⭐
-        <br><br>
-        Сменить модель можно в контекстном меню
-        <br><br>
         Донат:
         <a href="https://boosty.to/lynray" target="_blank">boosty.to/lynray</a>
         <br><br>
@@ -185,6 +261,3 @@
 
 </body>
 </html>
-
-
-
