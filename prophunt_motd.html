@@ -13,11 +13,13 @@
         }
 
         body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #6a00ff, #ff8a00);
-            color: #fff;
-            overflow: hidden;
-        }
+			min-height: 100vh;
+			background: linear-gradient(135deg, #6a00ff, #ff8a00);
+			color: #fff;
+			overflow-y: auto;   /* разрешаем вертикальный скролл */
+			overflow-x: hidden; /* убираем горизонтальный */
+		}
+
 
         .container {
             position: relative;
